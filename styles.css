@@ -1,0 +1,122 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    /*background-color: purple ;*/
+}
+#game-board {
+    width: 320px;
+    height: 500px;
+    border: 2px solid black;
+    display: grid;
+    /*grid-template-columns: repeat(10, 1fr);*/
+    /*grid-template-rows: repeat(20, 1fr);*/
+    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
+    background-color: aliceblue;
+}
+.cell {
+    border: 1px solid #ffffff;
+    width: 96%;
+    height: 96%;
+    background-color: #f0f0f0;
+}
+.active {
+    background-color: darkseagreen;
+}
+.passive {
+    background-color: gray;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#gameCanvas {
+    border: 2px solid black;
+}
+
+#next-tetromino {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*margin: 10px;*/
+    /*margin-top: 10px;*/
+    /*margin-left: 10px;*/
+    /*margin-bottom: 10px;*/
+    border: 1px solid black;
+
+}
+
+#next-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*margin: 10px;*/
+    /*margin-top: 10px;*/
+    /*margin-left: 10px;*/
+    /*margin-bottom: 10px;*/
+    /*border: 1px dashed blue;*/
+
+}
+
+/*#nextcanvas {*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    /*margin: 10px;*/
+    /*!*margin-top: 10px;*!*/
+    /*!*margin-left: 10px;*!*/
+    /*!*margin-bottom: 10px;*!*/
+    /*border: 1px dashed blue;*/
+
+/*}*/
+
+#nextCanvas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /*border: 2px solid white;*/
+
+}
+
+#top-players {
+    margin-top: 20px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+#right-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+}
+
+/* styles for the game over popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popup-button {
+    margin-top: 10px;
+}

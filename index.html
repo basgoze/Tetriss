@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tetris Game</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        :root {
+            --cols: 10; /* Default value for COLS */
+            --rows: 20; /* Default value for ROWS */
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+<div id="game-container">
+    <div id="game-board"></div>
+</div>
+
+<div id="game-over-popup" class="popup">
+    <div class="popup-content">
+        <h2>Game Over</h2>
+        <p>Your score: <span id="game-over-score">0</span></p>
+        <button id="play-again-button">Play Again</button>
+    </div>
+</div>
+
+<div id="best-scores-popup" class="popup">
+    <div class="popup-content">
+        <h2>Best Scores</h2>
+        <ol id="best-scores-list"></ol>
+        <button id="close-button" >OK </button>
+    </div>
+</div>
+
+<div id="settings-panel" class="popup">
+    <div class="popup-content">
+        <h2>Settings</h2>
+        <label for="rows-input">Rows:</label>
+        <input type="number" id="rows-input">
+        <label for="cols-input">Columns:</label>
+        <input type="number" id="cols-input">
+        <label for="color-input">Background Color:</label>
+        <input type="color" id="color-input">
+        <button id="apply-settings-button">Apply</button>
+    </div>
+</div>
+
+<div id="right-panel">
+    <input type="text"  id="name-input"  placeholder="Enter your name">
+    <div class="score-board"> Score: <span id="score">0</span> </div>
+
+    <a href="best-scores.html">Best Scores</a>
+
+    <div id="next-section">
+        <h3>Next</h3>
+        <div id="next-tetromino">
+
+            <canvas id="nextCanvas" width="100" height="100"></canvas>
+        </div>
+    </div>
+
+    <!--<input type="text"  id="name-input"  placeholder="Enter your name">-->
+    <!--<div class="score-board"> Score: <span id="score">0</span> </div>-->
+
+    <!--<a href="best-scores.html">Best Scores</a>-->
+    <!--<button id="best-scores-button" onclick="showBestScoresPopup()">Best Scores</button>-->
+    <!--<button id="settings-button" >Settings</button>-->
+    <!-- Top Players section -->
+    <!--<div id="top-players">-->
+        <!--<h3>  Top 5 Players</h3>-->
+        <!--<ul id="top-players-list"></ul>-->
+    <!--</div>-->
+</div>
+
+
+
+<script src="tetromino.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
