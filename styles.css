@@ -8,14 +8,17 @@ body {
 }
 #game-board {
     width: 320px;
-    height: 500px;
-    border: 2px solid black;
+    height: 520px;
+    
+    
     display: grid;
     /*grid-template-columns: repeat(10, 1fr);*/
     /*grid-template-rows: repeat(20, 1fr);*/
     grid-template-columns: repeat(var(--cols), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
     background-color: aliceblue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
 }
 .cell {
     border: 1px solid #ffffff;
@@ -30,65 +33,8 @@ body {
     background-color: gray;
 }
 
-#game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#gameCanvas {
-    border: 2px solid black;
-}
 
-#next-tetromino {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /*margin: 10px;*/
-    /*margin-top: 10px;*/
-    /*margin-left: 10px;*/
-    /*margin-bottom: 10px;*/
-    border: 2px solid blue;
 
-}
-
-#next-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /*margin: 10px;*/
-    /*margin-top: 10px;*/
-    /*margin-left: 10px;*/
-    /*margin-bottom: 10px;*/
-    /*border: 1px dashed blue;*/
-
-}
-
-/*#nextcanvas {*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*align-items: center;*/
-    /*margin: 10px;*/
-    /*!*margin-top: 10px;*!*/
-    /*!*margin-left: 10px;*!*/
-    /*!*margin-bottom: 10px;*!*/
-    /*border: 1px dashed blue;*/
-
-/*}*/
-
-#nextCanvas{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    /*border: 2px solid white;*/
-
-}
-
-#top-players {
-    margin-top: 20px;
-    margin-left: 10px;
-    text-align: left;
-}
 
 #right-panel {
     display: flex;
@@ -120,3 +66,33 @@ body {
 .popup-button {
     margin-top: 10px;
 }
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .game-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    .game-info {
+        margin-top: 20px;
+    }
+}
+
+.game-info {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+    height: 500px;
+}
+
+.score-board, .lines-box, .player-info,#next-section {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+

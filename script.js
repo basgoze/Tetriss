@@ -20,6 +20,9 @@ let gameOver = false;
 let score = 0;
 const scoreElement = document.getElementById("score");
 
+let lines = 0;
+const linesElement = document.getElementById("lines");
+
 let board = [];
 
 // Initialize the game board with empty cells
@@ -137,6 +140,7 @@ function destroyRows() {
     const rowsCleared = rowsToRemove.length;
     if (rowsCleared > 0) {
         score += rowsCleared*rowsCleared * 100 ; // Adjust the scoring as needed
+        lines += rowsCleared ; 
         updateScore();
     }
 
@@ -159,6 +163,7 @@ function animateRowRemoval(cells, rowIndex) {
 // Function to update the score display
 function updateScore() {
     scoreElement.textContent = score;
+    linesElement.textContent = lines;
 }
 
 
@@ -180,6 +185,11 @@ function updateGameBoard() {
 }
 
 function updateGame() {
+
+    if (isPaused) {
+        // Don't update the game if paused
+        return;
+    }
 
     updateGameBoard();
     if (!currentTetromino.isValidMove(currentTetromino.x, currentTetromino.y +1, currentTetromino.shape)) {
@@ -215,6 +225,11 @@ function updateGame() {
 }
 
 function tick() {
+    if (isPaused) {
+        // Don't update the game if paused
+        return;
+    }
+    
     currentTetromino.moveDown();
     updateGame();
 }
@@ -300,6 +315,31 @@ applySettingsButton.addEventListener("click", () => {
     settingsPanel.style.display = "none";
 
     // Update game board and other components as needed
+});
+
+
+let isPaused = false; // Track the pause state
+
+// Pause the game
+function pauseGame() {
+    isPaused = true;
+}
+
+// Resume the game
+function resumeGame() {
+    isPaused = false;
+    updateGame(); // Restart the game loop
+}
+
+const pauseButton = document.getElementById("pause-button");
+pauseButton.addEventListener("click", () => {
+    if (isPaused) {
+        resumeGame();
+        pauseButton.textContent = "Pause";
+    } else {
+        pauseGame();
+        pauseButton.textContent = "Resume";
+    }
 });
 
 function startGame() {
